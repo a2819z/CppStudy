@@ -87,6 +87,9 @@ auto result3 = lockAndCall(f3, f3m, nullptr);   // fine
 ```
 
 위 세개의 함수 호출에서 `PtrType` 의 타입추론에 대해 자세히 분석해보자. 0과 NULL의 경우에는 int 타입으로 추론이 된다. 이런 int 타입 ptr을 포인터 타입을 가지는 함수에 넘기면서 에러가 생기는 것이다.
-이와 반대로, `nullptr` 을 넘기면 `ptr` 의 타입은 `std::nullptr_t` 로 추론이 되며, `ptr` 을 함수에 넘기면 `std::nullptr_t` 는 `Widget*` 는 암시적으로 변환이된다.
+이와 반대로, `nullptr` 을 넘기면 `ptr` 의 타입은 `std::nullptr_t` 로 추론이 되며, `ptr` 을 함수에 넘기면 `std::nullptr_t` 는 `Widget*` 으로 암시적으로 변환이된다.
 
+### 요약
 
+- `nullptr` 의 사용을 극대화하자.
+- 타입 추론이 있는 부분에는 `nullptr` 이 매우 효과적
